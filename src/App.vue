@@ -15,7 +15,7 @@ export default {
   <header_view />
   <div class="main">
     <sidebar />
-    <products />
+    <router-view></router-view>
   </div>
 </template>
 

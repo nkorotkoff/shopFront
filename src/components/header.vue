@@ -12,7 +12,7 @@ export default {
           <div class="header-left">
             <div class="menu">
               <ul class="nav" id="nav">
-                <li><a href="">Shop</a></li>
+                <li><router-link to="/">Shop</router-link></li>
                 <li><a href="">Team</a></li>
                 <li><a href="">Events</a></li>
                 <li><a href="">Experiance</a></li>
@@ -25,7 +25,9 @@ export default {
           </div>
           <div class="header_right">
             <div class="header_icons">
-              <v-icon class="header_basket" icon="mdi-basket-outline" />
+              <router-link to="/basket"
+                ><v-icon class="header_basket" icon="mdi-basket-outline"
+              /></router-link>
               <v-icon class="header_basket" icon="mdi-account " />
             </div>
           </div>

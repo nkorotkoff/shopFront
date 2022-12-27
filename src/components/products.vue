@@ -1,4 +1,16 @@
-<script></script>
+<script>
+import { defineComponent } from "vue";
+import { useProductsStore } from "../store/store";
+export default defineComponent({
+  setup() {
+    const productsStore = useProductStore();
+    if (!productsStore.products) {
+      productsStore.getProducts();
+    }
+    return productsStore;
+  },
+});
+</script>
 <template>
   <div class="container">
     <div class="content">
