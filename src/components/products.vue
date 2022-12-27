@@ -1,13 +1,16 @@
 <script>
+import { storeToRefs } from "pinia";
 import { defineComponent } from "vue";
 import { useProductsStore } from "../store/store";
 export default defineComponent({
   setup() {
-    const productsStore = useProductStore();
-    if (!productsStore.products) {
+    const productsStore = useProductsStore();
+    const { products } = storeToRefs(productsStore);
+    if (!products.products) {
       productsStore.getProducts();
+
+      return productsStore;
     }
-    return productsStore;
   },
 });
 </script>
@@ -16,7 +19,7 @@ export default defineComponent({
     <div class="content">
       <div class="row">
         <h2 class="products_topRated">Top rated products</h2>
-        <div class="col-md-4">
+        <div v-for="item in products.products" class="col-md-4">
           <div class="col-md-10 stuff">
             <div class="upper">
               <img
@@ -26,8 +29,8 @@ export default defineComponent({
               />
             </div>
             <div class="downer">
-              <h3 class="name">Name</h3>
-              <p>Price: $299</p>
+              <h3 class="name">{{ item.name }}</h3>
+              <p>Price: ${{ item.price }}</p>
               <button type="button" class="btn add-to-cart">Add to cart</button>
             </div>
           </div>

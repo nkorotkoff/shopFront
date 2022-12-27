@@ -1,12 +1,20 @@
-<script></script>
+<script>
+import { useProductsStore } from "../store/store";
+export default {
+  setup() {
+    const store = useProductsStore();
+    store.getCategories();
+
+    return { store };
+  },
+};
+</script>
 <template>
   <div class="sidebar">
     <h2>Categories</h2>
     <hr />
     <ul>
-      <li>fdgd</li>
-      <li>dfg</li>
-      <li>fdgd</li>
+      <li v-for="item in store.categoriesList">{{ item.name }}</li>
     </ul>
   </div>
 </template>

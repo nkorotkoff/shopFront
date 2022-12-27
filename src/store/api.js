@@ -1,6 +1,7 @@
 import axios from "axios";
 const API = axios.create({
-  baseURL: `localhost:8081`,
+  baseURL: `http://localhost:8081`,
 });
 
-export const fetchProducts = API.get("/products");
+export const fetchProducts = API.get("products/get-all-products");
+export const fetchCategories = API.get("categories/get-categories");
