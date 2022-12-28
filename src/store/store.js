@@ -6,7 +6,6 @@ export const useProductsStore = defineStore("products", {
         products: {},
         basket: {},
         categories: [],
-        category: {}
     }),
     actions: {
         async getProducts() {
@@ -35,7 +34,6 @@ export const useProductsStore = defineStore("products", {
                 console.log(error);
             }
         },
-
         },
         getters: {
             productsList() {

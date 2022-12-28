@@ -3,7 +3,7 @@ import { defineProps } from "vue";
 
 defineProps({
   products: Object,
-  message:String
+  message:String || {}
 });
 
 
