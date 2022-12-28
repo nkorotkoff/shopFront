@@ -9,17 +9,15 @@ const props = defineProps({
 const store = useProductsStore();
 watch(props, () => {
   store.getProductsByCategory(props.id)
-
 })
 store.getProductsByCategory(props.id)
 const products = computed(() => store.productsList.products)
 
-
-  state.name = store.categoriesList.find(item=>item.id===props.id)
+  const name = computed(()=> store.categoriesList.find(item=>item.id===parseInt(props.id)))
 
 </script>
 <template>
-  <Products  :products="products"></Products>
+  <Products :message="name.name + ' category'" :products="products"></Products>
 </template>
 
 <style></style>

@@ -10,11 +10,13 @@ export default {
 </script>
 
 <template>
+  <template >
   <header_view />
   <div class="main">
     <sidebar />
     <router-view ></router-view>
   </div>
+  </template>
 </template>
 
 <style>

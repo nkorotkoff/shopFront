@@ -6,18 +6,10 @@ export default {
 
 <template>
   <div class="header">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
           <div class="header-left">
             <div class="menu">
               <ul class="nav" id="nav">
                 <li><router-link to="/">Shop</router-link></li>
-                <li><a href="">Team</a></li>
-                <li><a href="">Events</a></li>
-                <li><a href="">Experiance</a></li>
-                <li><a href="">Company</a></li>
-                <li><a href="">Contact</a></li>
                 <div class="clear"></div>
               </ul>
             </div>
@@ -28,14 +20,14 @@ export default {
               <router-link to="/basket"
                 ><v-icon class="header_basket" icon="mdi-basket-outline"
               /></router-link>
-              <v-icon class="header_basket" icon="mdi-account " />
+              <router-link to="login"><p class="text-white">Sign In</p></router-link>
+              <router-link to="login"><p class="text-white">Sign Up</p></router-link>
+<!--              <v-icon class="header_basket" icon="mdi-account " />-->
             </div>
           </div>
           <div class="clear"></div>
         </div>
-      </div>
-    </div>
-  </div>
+
 </template>
 
 <style>
@@ -71,11 +63,12 @@ body a {
 }
 .header {
   background: grey;
-  padding: 1.5% 0;
+  display: flex;
+  align-items: center;
 }
 .header-left {
-  float: left;
-  width: 59%;
+  width: 90%;
+
 }
 .logo {
   float: left;
@@ -109,10 +102,6 @@ body a {
 }
 #nav .current a {
   color: red;
-}
-.toggleMenu {
-  display: none;
-  padding: 4px 5px 0px 5px;
 }
 .nav:before,
 .nav:after {
@@ -187,8 +176,7 @@ body a {
   }
 }
 .header_right {
-  float: right;
-  width: 6%;
+
 }
 
 .header_basket {
@@ -200,6 +188,16 @@ i {
 }
 .header_icons {
   display: flex;
-  margin-left: 100%;
+
+  align-items: center;
+  justify-content: space-between;
+
 }
+.header_icons a{
+  margin-left: 10px;
+}
+.header_icons i{
+  margin-top:6px;
+}
+
 </style>
