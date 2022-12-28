@@ -14,7 +14,11 @@ export default {
     <h2>Categories</h2>
     <hr />
     <ul>
-      <li v-for="item in store.categoriesList">{{ item.name }}</li>
+      <li  :key="item.id" v-for="item in store.categoriesList">
+        <router-link :to="{name:'categoryProducts',params:{id:item.id}}">
+        {{ item.name }}
+        </router-link>
+      </li>
     </ul>
   </div>
 </template>

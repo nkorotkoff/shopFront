@@ -4,11 +4,13 @@ import {
   createWebHashHistory,
 } from "vue-router";
 
-import Products from "../products.vue";
+import Main from "../main.vue";
 import Basket from "../basket.vue";
+import CategoryProducts from "@/components/categoryProducts.vue";
 const routes = [
-  { path: "/", component: Products },
+  { path: "/", component: Main },
   { path: "/basket", component: Basket },
+  {path:"/category/:id",component: CategoryProducts,name:'categoryProducts',props:true}
 ];
 
 const router = createRouter({

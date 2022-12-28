@@ -1,25 +1,19 @@
-<script>
-import { storeToRefs } from "pinia";
-import { defineComponent } from "vue";
-import { useProductsStore } from "../store/store";
-export default defineComponent({
-  setup() {
-    const productsStore = useProductsStore();
-    const { products } = storeToRefs(productsStore);
-    if (!products.products) {
-      productsStore.getProducts();
+<script setup>
+import { defineProps } from "vue";
 
-      return productsStore;
-    }
-  },
+defineProps({
+  products: Object,
+  message:String
 });
+
+
 </script>
 <template>
   <div class="container">
     <div class="content">
       <div class="row">
-        <h2 class="products_topRated">Top rated products</h2>
-        <div v-for="item in products.products" class="col-md-4">
+        <h2 class="products_topRated">{{message}}</h2>
+        <div v-for="item in products" class="col-md-4">
           <div class="col-md-10 stuff">
             <div class="upper">
               <img
