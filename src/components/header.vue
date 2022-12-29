@@ -10,7 +10,6 @@ export default {
             <div class="menu">
               <ul class="nav" id="nav">
                 <li><router-link to="/">Shop</router-link></li>
-                <div class="clear"></div>
               </ul>
             </div>
             <div class="clear"></div>
@@ -20,8 +19,8 @@ export default {
               <router-link to="/basket"
                 ><v-icon class="header_basket" icon="mdi-basket-outline"
               /></router-link>
-              <router-link to="login"><p class="text-white">Sign In</p></router-link>
-              <router-link to="login"><p class="text-white">Sign Up</p></router-link>
+              <router-link to="/login"><p class="text-white">Sign In</p></router-link>
+              <router-link to="/register"><p class="text-white">Sign Up</p></router-link>
 <!--              <v-icon class="header_basket" icon="mdi-account " />-->
             </div>
           </div>

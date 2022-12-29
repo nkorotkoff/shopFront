@@ -10,9 +10,11 @@
   "dependencies": {
     "axios": "^1.2.1",
     "pinia": "^2.0.28",
+    "vee-validate": "^4.7.3",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",
-    "vuetify": "^3.0.6"
+    "vuetify": "^3.0.6",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^5.0.0",

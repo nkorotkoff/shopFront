@@ -10,13 +10,18 @@ export default {
 </script>
 
 <template>
-  <template >
   <header_view />
+  <div v-if="!this.$route.name?.includes('login','register')">
+
   <div class="main">
     <sidebar />
     <router-view ></router-view>
   </div>
-  </template>
+  </div>
+  <div>
+    <router-view></router-view>
+  </div>
+
 </template>
 
 <style>
