@@ -11,16 +11,14 @@ export default {
 
 <template>
   <header_view />
-  <div v-if="!this.$route.name?.includes('login','register')">
-
-  <div class="main">
+  <div v-if="this.$route.name?.includes('login','register')">
+    <router-view ></router-view>
+  </div>
+  <div v-else class="main">
     <sidebar />
     <router-view ></router-view>
   </div>
-  </div>
-  <div>
-    <router-view></router-view>
-  </div>
+
 
 </template>
 

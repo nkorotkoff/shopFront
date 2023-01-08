@@ -1,18 +1,20 @@
 <script setup>
-import { defineProps, toRef } from 'vue';
-import { useField } from 'vee-validate';
+import { useForm, useField } from 'vee-validate';
 import * as yup from 'yup';
+import Input from "./input.vue";
 
-const props = defineProps({
-  email: {
-    type: String,
-    required: true,
-  },
-  password:{
-    type:String,
-    required:true
-  }
+// Define a validation schema
+const schema = yup.object({
+  email: yup.string().required().email(),
+  password: yup.string().required(),
 });
+const {handleSubmit} = useForm({
+  validationSchema: schema,
+});
+const onSubmit = handleSubmit(values => {
+  console.log(values)
+});
+
 
 
 </script>
@@ -32,24 +34,24 @@ const props = defineProps({
           />
         </div>
         <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-          <form >
+          <form @submit="onSubmit">
 
             <!-- Email input -->
-            <div class="mb-6">
-              <input
+            <div >
+              <Input
                      name="email"
                      type="email"
-                     class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                     className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                      placeholder="Email address"
               />
             </div>
 
             <!-- Password input -->
-            <div class="mb-6">
-              <input
+            <div >
+              <Input
                   type="password"
-                  class="form-control mt-2 block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                  id="exampleFormControlInput2"
+                  name="password"
+                  className="form-control mt-2 block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                   placeholder="Password"
               />
             </div>
@@ -57,7 +59,7 @@ const props = defineProps({
 
             <div class="text-center lg:text-left">
               <button
-                  type="button"
+                  type="submit"
                   class="inline-block mt-2 px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
               >
                 Login
